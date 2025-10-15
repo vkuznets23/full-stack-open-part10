@@ -2,6 +2,8 @@ import { View, StyleSheet } from 'react-native'
 import Constants from 'expo-constants'
 import AppBarTab from './AppBarTab'
 import { theme } from '../theme'
+import { useLocation } from 'react-router-native'
+import { ScrollView } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -15,9 +17,18 @@ const styles = StyleSheet.create({
 })
 
 const AppBar = () => {
+  const location = useLocation()
+
   return (
     <View style={styles.container}>
-      <AppBarTab isActive={true}>Repositories</AppBarTab>
+      <ScrollView horizontal>
+        <AppBarTab to="/" isActive={location.pathname === '/'}>
+          Repositories
+        </AppBarTab>
+        <AppBarTab to="/signin" isActive={location.pathname === '/signin'}>
+          Sign In
+        </AppBarTab>
+      </ScrollView>
     </View>
   )
 }

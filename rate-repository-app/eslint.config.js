@@ -1,7 +1,7 @@
-import js from '@eslint/js'
-import react from 'eslint-plugin-react'
+const js = require('@eslint/js')
+const react = require('eslint-plugin-react')
 
-export default [
+module.exports = [
   js.configs.recommended,
   {
     files: ['**/*.{js,jsx}'],

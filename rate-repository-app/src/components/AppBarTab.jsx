@@ -1,13 +1,14 @@
-import { Pressable, Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
+import { Link } from 'react-router-native'
 import { theme } from '../theme'
 
-const AppBarTab = ({ children, onPress, isActive = false }) => {
+const AppBarTab = ({ children, isActive = false, to }) => {
   return (
-    <Pressable onPress={onPress} style={styles.container}>
+    <Link to={to} style={styles.container}>
       <Text style={[styles.text, isActive && styles.activeText]}>
         {children}
       </Text>
-    </Pressable>
+    </Link>
   )
 }
 
